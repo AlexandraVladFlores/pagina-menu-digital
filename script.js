@@ -16,7 +16,6 @@ const costoEnvio = 0;
 
 const botonesAgregar = document.querySelectorAll(".boton-agregar");
 const listaPedido = document.getElementById("lista-pedido");
-const subtotalTexto = document.getElementById("subtotal-pedido");
 const envioTexto = document.getElementById("costo-envio");
 const totalTexto = document.getElementById("total-pedido");
 
@@ -183,18 +182,9 @@ function actualizarPedido() {
 
     });
 
-    const modalidad = document.querySelector(
-        'input[name="modalidad"]:checked'
-    );
+    const total = subtotal;
 
-    const envio = modalidad && modalidad.value === "domicilio"
-        ? costoEnvio
-        : 0;
-
-    const total = subtotal + envio;
-
-    subtotalTexto.textContent = formatoPrecio(subtotal);
-    envioTexto.textContent = formatoPrecio(envio);
+    
     totalTexto.textContent = formatoPrecio(total);
 }
 
